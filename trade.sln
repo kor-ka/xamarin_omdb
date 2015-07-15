@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "trade", "trade\trade.shproj", "{7C88AF04-315D-4447-B9F7-2A32246A2CAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trade.Droid", "Droid\trade.Droid.csproj", "{534F0675-DB1F-4C39-9BA6-A2F7C1C2135E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trade.UITests", "UITests\trade.UITests.csproj", "{C96328AD-961E-4C83-B5F5-5DF3158E9B43}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		trade\trade.projitems*{534f0675-db1f-4c39-9ba6-a2f7c1c2135e}*SharedItemsImports = 4
+		trade\trade.projitems*{7c88af04-315d-4447-b9f7-2a32246a2caa}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{534F0675-DB1F-4C39-9BA6-A2F7C1C2135E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{534F0675-DB1F-4C39-9BA6-A2F7C1C2135E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{534F0675-DB1F-4C39-9BA6-A2F7C1C2135E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{534F0675-DB1F-4C39-9BA6-A2F7C1C2135E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{534F0675-DB1F-4C39-9BA6-A2F7C1C2135E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96328AD-961E-4C83-B5F5-5DF3158E9B43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96328AD-961E-4C83-B5F5-5DF3158E9B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96328AD-961E-4C83-B5F5-5DF3158E9B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96328AD-961E-4C83-B5F5-5DF3158E9B43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
