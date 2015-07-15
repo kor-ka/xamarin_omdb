@@ -9,8 +9,13 @@
     <Import_RootNamespace>trade</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)trade.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)api\entity\omdbEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)api\Api.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)api\ApiRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ui\page\MainPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)ui\view\" />
   </ItemGroup>
 </Project>

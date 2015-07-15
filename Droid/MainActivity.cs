@@ -27,6 +27,7 @@ namespace trade.Droid
             Xamarin.Forms.Forms.Init(this, bundle);
 
             LoadApplication(new App());
+            
             ActionBar.Show();
            
         }
