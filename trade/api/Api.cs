@@ -19,29 +19,33 @@ namespace trade
 			return new Api ();
 		}
 
-		public async Task<string> get(ApiRequest requestType, Dictionary<string, string> data, int timeOut){
+		public async Task<JsonValue> get(ApiRequest requestType, Dictionary<string, string> data, int timeOut){
 			var httpClient = new HttpClient(){
 				Timeout = TimeSpan.FromMilliseconds(3000)
 
 
 			};
 			string url;
+            string method;
 			switch(requestType){
 			case ApiRequest.FIND_MOVIE:
 				url = "http://www.omdbapi.com/";
-				break;
+                method = "GET";
+                break;
 			case ApiRequest.MOVIE_DATA:
 				url = "http://www.omdbapi.com/";
-				break;
+                method = "GET";
+                break;
 			default:
 				url = "";
-				break;
+                method = "GET";
+                break;
 			}
 
 			try{
 				HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (url + buildParams(data)));
 				request.ContentType = "application/json";
-				request.Method = "GET";
+				request.Method = method;
 
 				// Send the request to the server and wait for the response:
 				using (WebResponse response = await request.GetResponseAsync ())
@@ -53,7 +57,7 @@ namespace trade
 						JsonValue jsonDoc = await Task.Run (() => JsonObject.Load (stream));
 						Console.Out.WriteLine("Response: {0}", jsonDoc.ToString ());
 						// Return the JSON document:
-						return jsonDoc.ToString();
+						return JsonValue.Parse(jsonDoc.ToString()) ;
 					}
 				}
 			}catch(HttpRequestException e){
@@ -64,7 +68,7 @@ namespace trade
 			}
 		}
 
-		public async Task<string> get(ApiRequest requestType, Dictionary<string, string> data){
+		public async Task<JsonValue> get(ApiRequest requestType, Dictionary<string, string> data){
 			return await get (requestType, data, 0);
 		}
 
@@ -78,6 +82,17 @@ namespace trade
 		public void stopLoop(){
 			loop = false;
 		}
+
+        public async Task<bool> login(string email, string pass)
+        {
+            var loginParams = new Dictionary<string, string> ();
+            loginParams.Add("email", email);
+            loginParams.Add("password", pass);
+            JsonValue result = await get(ApiRequest.LOGIN, loginParams);
+                
+            
+            return result["code"];
+        }
 
 		public string buildParams (Dictionary<string, string> data){
 			if (data != null && data.Count > 0) {

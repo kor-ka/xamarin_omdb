@@ -6,7 +6,13 @@ namespace trade
 	{
 		FIND_MOVIE,
 		MOVIE_DATA,
-		LOGIN
+		LOGIN,
+        LOGOUT,
+        REGISTER,
+        REGISTER_MIN,
+        PLAY_REAL,
+        PLAY_DEMO,
+
 	}
 }
 

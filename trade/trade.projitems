@@ -14,6 +14,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)api\Api.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)api\ApiRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ui\page\MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ui\page\MenuPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ui\page\LoginPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ui\page\RegisterPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)util\Prefs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)ui\view\" />

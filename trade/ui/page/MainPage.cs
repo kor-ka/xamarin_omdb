@@ -12,6 +12,7 @@ namespace trade.ui
         ObservableCollection<FilmData> filmsList;
         public MainPage()
 		{
+            Title = "FilmSearch";
 
             var search = new Editor { };
 
@@ -31,8 +32,8 @@ namespace trade.ui
 
                 var data = new Dictionary<string, string>();
                 data.Add("s", e.NewTextValue);
-                string result = await Api.getInstanse().get(ApiRequest.FIND_MOVIE, data);
-                var resultJson = JsonObject.Parse(result);
+                JsonValue result = await Api.getInstanse().get(ApiRequest.FIND_MOVIE, data);
+                JsonValue resultJson = result;
                 if (resultJson.ContainsKey("Search"))
                 {
                     filmsList.Clear();
@@ -85,8 +86,8 @@ namespace trade.ui
                     dlgAlert.SetButton("Close", handllerCancelButton);
                     dlgAlert.Show();
 
-                    string filmResult = await Api.getInstanse().get(ApiRequest.FIND_MOVIE, prms);
-                    var resultJson = JsonObject.Parse(filmResult);
+                    JsonValue filmResult = await Api.getInstanse().get(ApiRequest.FIND_MOVIE, prms);
+                    JsonValue resultJson = filmResult;
                     if (resultJson.ContainsKey("Plot"))
                     {
                         filmData.Plot = resultJson["Plot"];
@@ -97,8 +98,8 @@ namespace trade.ui
                     /////////////////////////
                     #else
                     /////////////////////////
-                    string filmResult = await Api.getInstanse().get(ApiRequest.FIND_MOVIE, prms);
-                    var resultJson = JsonObject.Parse(filmResult);
+                    JsonValue filmResult = await Api.getInstanse().get(ApiRequest.FIND_MOVIE, prms);
+                    var resultJson = filmResult;
                     if (resultJson.ContainsKey("Plot")){
                             filmData.Plot = resultJson["Plot"];
                             await mainPage.DisplayAlert(filmData.Title, "Year: " + filmData.Year + "\n" + "\n" + "Type: " + filmData.Type + "\n" + "\n" + filmData.Plot, "close");
